@@ -80,9 +80,8 @@ for line in lines:
     family_spouse_match = family_spouse_pattern.match(line)
     if family_spouse_match and current_individual:
         current_individual['spouse'].append(family_spouse_match.group(1))
-
- 
-    family_match = family_pattern.match(line)
+    
+       family_match = family_pattern.match(line)
     if family_match:
         if current_family:
             families[current_family['identifier']] = current_family
@@ -120,7 +119,7 @@ for line in lines:
         current_family['children'].append(child_match.group(1))
 
 individual_table = PrettyTable()
-individual_table.field_names = ["Identifier", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
+individual_table.field_names =["Identifier", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
 
 for identifier, data in sorted(individuals.items(), key=lambda x: int(x[0])):
     individual_table.add_row([
@@ -156,6 +155,4 @@ print(individual_table)
 
 print("\nFamilies Table:")
 print(family_table)
-
-
-
+      
